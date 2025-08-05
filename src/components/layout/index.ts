@@ -6,6 +6,9 @@
 // export { default as SideMenu } from './SideMenu';
 // export { default as Footer } from './Footer';
 
+// Layout Components
+export { default as ProductHeader } from './ProductHeader';
+
 // Export types (uncomment as components are created):
 // export type { HeaderProps } from './Header';
 // export type { SideMenuProps } from './SideMenu';

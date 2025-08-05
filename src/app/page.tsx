@@ -1,57 +1,35 @@
+'use client'
+
 import { getAllProducts } from '@/lib/data'
 import LazyProductGrid from '@/components/LazyProductGrid'
 import BackToTop from '@/components/BackToTop'
+import ProductHeader from '../components/layout/ProductHeader'
+import { useEffect, useState } from 'react'
 
 export default function Home() {
+  const [isClient, setIsClient] = useState(false)
+  
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
+
+  // Show loading state during hydration
+  if (!isClient) {
+    return (
+      <div className="min-h-screen bg-white">
+        <div className="flex items-center justify-center min-h-screen">
+          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-red-600"></div>
+        </div>
+      </div>
+    )
+  }
+
   const products = getAllProducts()
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Header - Design Guidelines */}
-      <header className="header-bg border-b border-gray-200">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            {/* Logo */}
-            <div className="flex items-center">
-              <h1 className="header-logo">Exclusive</h1>
-            </div>
-            
-            {/* Centered Search Input */}
-            <div className="flex-1 flex justify-center mx-8">
-              <div className="relative w-80">
-                <input
-                  type="search"
-                  placeholder="What are you looking for?"
-                  className="search-input w-full text-sm"
-                />
-                <div className="absolute inset-y-0 right-0 flex items-center pr-3">
-                  <svg className="h-4 w-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                  </svg>
-                </div>
-              </div>
-            </div>
-            
-            {/* Right Side - Action Icons */}
-            <div className="flex items-center space-x-4">
-              <button className="p-2 hover:bg-gray-100 rounded-full transition-colors">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                </svg>
-              </button>
-              
-              <button className="p-2 hover:bg-gray-100 rounded-full transition-colors relative">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.5 9H19" />
-                </svg>
-                <span className="absolute -top-1 -right-1 bg-red-600 text-white text-xs rounded-full h-4 w-4 flex items-center justify-center text-[10px]">
-                  2
-                </span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </header>
+      {/* Header - Using shared component */}
+      <ProductHeader />
 
       {/* Navigation Breadcrumb - Design Guidelines */}
       <nav className="breadcrumb-bg border-b border-gray-300">

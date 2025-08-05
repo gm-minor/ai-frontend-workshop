@@ -20,12 +20,27 @@
   --color-info-blue: #A0BCE0;
   --color-error-red: #E07575;
   
+  /* Font Variables - Fallback for hydration safety */
+  --font-geist-sans: ui-sans-serif, system-ui, sans-serif;
+  --font-geist-mono: ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+  
   /* Semantic Colors */
   --background: var(--color-pure-white);
   --foreground: var(--color-pure-black);
   --muted: var(--color-light-gray);
   --border: var(--color-medium-gray);
   --accent: var(--color-brand-red);
+}
+
+/* Base styles for hydration safety */
+html {
+  font-family: var(--font-geist-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-geist-sans);
 }
 
 /* Typography System - Based on design_guideline.md */

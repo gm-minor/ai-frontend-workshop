@@ -111,7 +111,7 @@ export function getProductsPaginated(
 }
 
 /**
- * Search products by term
+ * Search products by term with enhanced matching
  */
 export function searchProductsByTerm(searchTerm: string): Product[] {
   if (!searchTerm.trim()) {
@@ -119,12 +119,37 @@ export function searchProductsByTerm(searchTerm: string): Product[] {
   }
   
   const products = getAllProducts();
+  const categories = getAllCategories();
   const term = searchTerm.toLowerCase().trim();
+  const searchWords = term.split(' ').filter(word => word.length > 0);
   
-  return products.filter(product =>
-    product.name.toLowerCase().includes(term) ||
-    product.description.toLowerCase().includes(term)
-  );
+  return products.filter(product => {
+    // Get category name for better search
+    const category = categories.find(cat => cat.id === product.categoryId);
+    const categoryName = category ? category.name : '';
+    
+    const searchableText = `
+      ${product.name} 
+      ${product.description} 
+      ${categoryName}
+    `.toLowerCase();
+    
+    // Check if all search words are found in the searchable text
+    return searchWords.every(word => searchableText.includes(word));
+  }).sort((a, b) => {
+    // Sort by relevance - exact name matches first, then partial matches
+    const aName = a.name.toLowerCase();
+    const bName = b.name.toLowerCase();
+    
+    const aExactMatch = aName.includes(term);
+    const bExactMatch = bName.includes(term);
+    
+    if (aExactMatch && !bExactMatch) return -1;
+    if (!aExactMatch && bExactMatch) return 1;
+    
+    // Then by rating for similar relevance
+    return b.rating.average - a.rating.average;
+  });
 }
 
 /**

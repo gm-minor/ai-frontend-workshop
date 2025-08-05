@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { CartProvider } from '@/contexts/CartContext'
+import ErrorBoundary from '@/components/ErrorBoundary'
+import FontProvider from '@/components/FontProvider'
+import { siteMetadata } from '@/lib/metadata'
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -12,20 +16,25 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "TechStore - AI Frontend Workshop",
-  description: "E-commerce demo built with Next.js and TypeScript",
-};
+export const metadata: Metadata = siteMetadata
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const fontVariables = `${geistSans.variable} ${geistMono.variable} antialiased`
+  
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        {children}
+      <body suppressHydrationWarning={true}>
+        <FontProvider fontVariables={fontVariables}>
+          <ErrorBoundary>
+            <CartProvider>
+              {children}
+            </CartProvider>
+          </ErrorBoundary>
+        </FontProvider>
       </body>
     </html>
   );
