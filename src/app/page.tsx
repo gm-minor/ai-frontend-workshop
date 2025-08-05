@@ -1,103 +1,199 @@
-import Image from "next/image";
+import { getAllProducts } from '@/lib/data'
+import LazyProductGrid from '@/components/LazyProductGrid'
+import BackToTop from '@/components/BackToTop'
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const products = getAllProducts()
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  return (
+    <div className="min-h-screen bg-white">
+      {/* Header - Design Guidelines */}
+      <header className="header-bg border-b border-gray-200">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            {/* Logo */}
+            <div className="flex items-center">
+              <h1 className="header-logo">Exclusive</h1>
+            </div>
+            
+            {/* Centered Search Input */}
+            <div className="flex-1 flex justify-center mx-8">
+              <div className="relative w-80">
+                <input
+                  type="search"
+                  placeholder="What are you looking for?"
+                  className="search-input w-full text-sm"
+                />
+                <div className="absolute inset-y-0 right-0 flex items-center pr-3">
+                  <svg className="h-4 w-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            
+            {/* Right Side - Action Icons */}
+            <div className="flex items-center space-x-4">
+              <button className="p-2 hover:bg-gray-100 rounded-full transition-colors">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+              </button>
+              
+              <button className="p-2 hover:bg-gray-100 rounded-full transition-colors relative">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.5 9H19" />
+                </svg>
+                <span className="absolute -top-1 -right-1 bg-red-600 text-white text-xs rounded-full h-4 w-4 flex items-center justify-center text-[10px]">
+                  2
+                </span>
+              </button>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </header>
+
+      {/* Navigation Breadcrumb - Design Guidelines */}
+      <nav className="breadcrumb-bg border-b border-gray-300">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center h-12">
+            <span className="breadcrumb-text">Home</span>
+            <span className="mx-2 breadcrumb-text">/</span>
+            <span className="breadcrumb-current font-medium">All Products</span>
+          </div>
+        </div>
+      </nav>
+
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="flex gap-8">
+          {/* Sidebar - "Explore Our Products" - Design Guidelines */}
+          <aside className="w-72 flex-shrink-0">
+            <div className="sidebar-bg sticky top-8">
+              <h2 className="sidebar-title mb-6">Explore Our Products</h2>
+              
+              {/* Categories */}
+              <div className="space-y-4">
+                <div>
+                  <h3 className="text-body-medium font-medium mb-3 text-black">Categories</h3>
+                  <nav className="space-y-2">
+                    <a 
+                      href="#" 
+                      className="primary-button flex items-center justify-between px-3 py-2.5 rounded-md w-full text-left"
+                    >
+                      <span>All Products</span>
+                      <span className="text-xs">({products.length})</span>
+                    </a>
+                    <a 
+                      href="#" 
+                      className="secondary-button flex items-center justify-between px-3 py-2.5 rounded-md w-full text-left"
+                    >
+                      <span>Smartphones</span>
+                      <span className="text-xs text-gray-600">(6)</span>
+                    </a>
+                    <a 
+                      href="#" 
+                      className="secondary-button flex items-center justify-between px-3 py-2.5 rounded-md w-full text-left"
+                    >
+                      <span>Laptops</span>
+                      <span className="text-xs text-gray-600">(6)</span>
+                    </a>
+                    <a 
+                      href="#" 
+                      className="secondary-button flex items-center justify-between px-3 py-2.5 rounded-md w-full text-left"
+                    >
+                      <span>Headphones</span>
+                      <span className="text-xs text-gray-600">(5)</span>
+                    </a>
+                  </nav>
+                </div>
+
+                {/* Price Range Filter - Design Guidelines */}
+                <div className="pt-4 border-t border-gray-300">
+                  <h3 className="text-body-medium font-medium mb-3 text-black">Price Range</h3>
+                  <div className="space-y-2">
+                    <label className="flex items-center">
+                      <input type="checkbox" className="rounded text-red-600 focus:ring-red-600 border-gray-300" />
+                      <span className="ml-2 secondary-text">Under $100</span>
+                    </label>
+                    <label className="flex items-center">
+                      <input type="checkbox" className="rounded text-red-600 focus:ring-red-600 border-gray-300" />
+                      <span className="ml-2 secondary-text">$100 - $500</span>
+                    </label>
+                    <label className="flex items-center">
+                      <input type="checkbox" className="rounded text-red-600 focus:ring-red-600 border-gray-300" />
+                      <span className="ml-2 secondary-text">$500 - $1000</span>
+                    </label>
+                    <label className="flex items-center">
+                      <input type="checkbox" className="rounded text-red-600 focus:ring-red-600 border-gray-300" />
+                      <span className="ml-2 secondary-text">Over $1000</span>
+                    </label>
+                  </div>
+                </div>
+
+                {/* Rating Filter - Design Guidelines */}
+                <div className="pt-4 border-t border-gray-300">
+                  <h3 className="text-body-medium font-medium mb-3 text-black">Customer Rating</h3>
+                  <div className="space-y-2">
+                    {[5, 4, 3, 2, 1].map((rating) => (
+                      <label key={rating} className="flex items-center">
+                        <input type="checkbox" className="rounded text-red-600 focus:ring-red-600 border-gray-300" />
+                        <div className="ml-2 flex items-center">
+                          {[...Array(5)].map((_, i) => (
+                            <span 
+                              key={i} 
+                              className={`text-sm ${i < rating ? 'star-rating-active' : 'star-rating-inactive'}`}
+                            >
+                              ★
+                            </span>
+                          ))}
+                          <span className="ml-1 secondary-text">& up</span>
+                        </div>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </aside>
+
+          {/* Main Content Area - Design Guidelines */}
+          <main className="flex-1">
+            {/* Page Header */}
+            <div className="mb-8">
+              <h1 className="text-h1 mb-2 text-black">
+                All Products
+              </h1>
+              <div className="flex items-center justify-between">
+                <p className="text-body-medium text-gray-600">
+                  Showing <span className="font-medium text-black">{products.length}</span> results
+                </p>
+                
+                {/* Sort Dropdown */}
+                <div className="flex items-center space-x-4">
+                  <label className="text-body-medium text-black">Sort by:</label>
+                  <select className="search-input rounded-md px-3 py-1.5 text-sm">
+                    <option>Featured</option>
+                    <option>Price: Low to High</option>
+                    <option>Price: High to Low</option>
+                    <option>Customer Rating</option>
+                    <option>Newest</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            {/* Product Grid with Lazy Loading */}
+            <LazyProductGrid 
+              products={products} 
+              initialCount={6}
+              loadIncrement={6}
+            />
+          </main>
+        </div>
+      </div>
+      
+      {/* Back to Top Button */}
+      <BackToTop />
     </div>
-  );
+  )
 }

@@ -1,0 +1,225 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "iPhone 15 Pro",
+      "description": "The most advanced iPhone with titanium design and A17 Pro chip. Features a stunning Super Retina XDR display.",
+      "price": 999.99,
+      "image": "https://picsum.photos/300/300?random=1",
+      "categoryId": "smartphones",
+      "inStock": true,
+      "rating": {
+        "average": 4.8,
+        "count": 1247
+      }
+    },
+    {
+      "id": "2",
+      "name": "Samsung Galaxy S24 Ultra",
+      "description": "Premium Android flagship with S Pen and incredible camera capabilities. Built for productivity and creativity.",
+      "price": 1199.99,
+      "image": "https://picsum.photos/300/300?random=2",
+      "categoryId": "smartphones",
+      "inStock": true,
+      "rating": {
+        "average": 4.7,
+        "count": 892
+      }
+    },
+    {
+      "id": "3",
+      "name": "Google Pixel 8 Pro",
+      "description": "Google's flagship phone with advanced AI features and exceptional computational photography. Pure Android experience.",
+      "price": 899.99,
+      "image": "https://picsum.photos/300/300?random=3",
+      "categoryId": "smartphones",
+      "inStock": false,
+      "rating": {
+        "average": 4.6,
+        "count": 634
+      }
+    },
+    {
+      "id": "4",
+      "name": "OnePlus 12",
+      "description": "Flagship killer with blazing fast performance and ultra-smooth display. Never Settle philosophy in action.",
+      "price": 799.99,
+      "image": "https://picsum.photos/300/300?random=4",
+      "categoryId": "smartphones",
+      "inStock": true,
+      "rating": {
+        "average": 4.5,
+        "count": 523
+      }
+    },
+    {
+      "id": "5",
+      "name": "iPhone 14",
+      "description": "Reliable iPhone with excellent performance and camera quality. Great value for iOS enthusiasts.",
+      "price": 699.99,
+      "image": "https://picsum.photos/300/300?random=5",
+      "categoryId": "smartphones",
+      "inStock": true,
+      "rating": {
+        "average": 4.4,
+        "count": 1856
+      }
+    },
+    {
+      "id": "6",
+      "name": "MacBook Pro 16-inch M3",
+      "description": "Powerhouse laptop for professionals with M3 chip and stunning Liquid Retina XDR display. Built for demanding workflows.",
+      "price": 2499.99,
+      "image": "https://picsum.photos/300/300?random=6",
+      "categoryId": "laptops",
+      "inStock": true,
+      "rating": {
+        "average": 4.9,
+        "count": 743
+      }
+    },
+    {
+      "id": "7",
+      "name": "Dell XPS 13 Plus",
+      "description": "Ultra-thin Windows laptop with premium design and excellent performance. Perfect for productivity and portability.",
+      "price": 1299.99,
+      "image": "https://picsum.photos/300/300?random=7",
+      "categoryId": "laptops",
+      "inStock": true,
+      "rating": {
+        "average": 4.3,
+        "count": 567
+      }
+    },
+    {
+      "id": "8",
+      "name": "MacBook Air M2",
+      "description": "Incredibly thin and light laptop with M2 chip performance. Ideal for everyday computing and creative tasks.",
+      "price": 1199.99,
+      "image": "https://picsum.photos/300/300?random=8",
+      "categoryId": "laptops",
+      "inStock": false,
+      "rating": {
+        "average": 4.7,
+        "count": 1324
+      }
+    },
+    {
+      "id": "9",
+      "name": "Lenovo ThinkPad X1 Carbon",
+      "description": "Business-class ultrabook with legendary keyboard and robust build quality. Built for professionals who demand reliability.",
+      "price": 1599.99,
+      "image": "https://picsum.photos/300/300?random=9",
+      "categoryId": "laptops",
+      "inStock": true,
+      "rating": {
+        "average": 4.5,
+        "count": 432
+      }
+    },
+    {
+      "id": "10",
+      "name": "ASUS ROG Zephyrus G14",
+      "description": "Compact gaming laptop with AMD Ryzen processor and NVIDIA RTX graphics. Power meets portability for gamers.",
+      "price": 1799.99,
+      "image": "https://picsum.photos/300/300?random=10",
+      "categoryId": "laptops",
+      "inStock": true,
+      "rating": {
+        "average": 4.6,
+        "count": 289
+      }
+    },
+    {
+      "id": "11",
+      "name": "HP Spectre x360",
+      "description": "Versatile 2-in-1 laptop with stunning design and flexible form factor. Perfect blend of style and functionality.",
+      "price": 1399.99,
+      "image": "https://picsum.photos/300/300?random=11",
+      "categoryId": "laptops",
+      "inStock": true,
+      "rating": {
+        "average": 4.2,
+        "count": 678
+      }
+    },
+    {
+      "id": "12",
+      "name": "Sony WH-1000XM5",
+      "description": "Industry-leading noise canceling headphones with exceptional sound quality. Perfect for travel and focused listening.",
+      "price": 399.99,
+      "image": "https://picsum.photos/300/300?random=12",
+      "categoryId": "headphones",
+      "inStock": true,
+      "rating": {
+        "average": 4.8,
+        "count": 2134
+      }
+    },
+    {
+      "id": "13",
+      "name": "Bose QuietComfort 45",
+      "description": "Premium comfort and world-class noise cancellation in a lightweight design. Trusted by audio professionals worldwide.",
+      "price": 329.99,
+      "image": "https://picsum.photos/300/300?random=13",
+      "categoryId": "headphones",
+      "inStock": false,
+      "rating": {
+        "average": 4.6,
+        "count": 1567
+      }
+    },
+    {
+      "id": "14",
+      "name": "Apple AirPods Pro 2nd Gen",
+      "description": "Wireless earbuds with active noise cancellation and spatial audio. Seamlessly integrated with Apple ecosystem.",
+      "price": 249.99,
+      "image": "https://picsum.photos/300/300?random=14",
+      "categoryId": "headphones",
+      "inStock": true,
+      "rating": {
+        "average": 4.7,
+        "count": 3421
+      }
+    },
+    {
+      "id": "15",
+      "name": "Sennheiser HD 660S2",
+      "description": "Open-back audiophile headphones with natural sound reproduction. Designed for critical listening and studio work.",
+      "price": 599.99,
+      "image": "https://picsum.photos/300/300?random=15",
+      "categoryId": "headphones",
+      "inStock": true,
+      "rating": {
+        "average": 4.9,
+        "count": 234
+      }
+    },
+    {
+      "id": "16",
+      "name": "Audio-Technica ATH-M50xBT2",
+      "description": "Professional monitor headphones with wireless connectivity. Studio-quality sound for music production and casual listening.",
+      "price": 199.99,
+      "image": "https://picsum.photos/300/300?random=16",
+      "categoryId": "headphones",
+      "inStock": true,
+      "rating": {
+        "average": 4.4,
+        "count": 876
+      }
+    },
+    {
+      "id": "17",
+      "name": "Beyerdynamic DT 770 Pro",
+      "description": "Closed-back studio headphones with exceptional detail and comfort. Industry standard for monitoring and mixing.",
+      "price": 179.99,
+      "image": "https://picsum.photos/300/300?random=17",
+      "categoryId": "headphones",
+      "inStock": true,
+      "rating": {
+        "average": 4.5,
+        "count": 1203
+      }
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductCard Component Snapshot Testing matches snapshot for in-stock product 1`] = `
+<div
+  aria-label="product card"
+  data-testid="product-card"
+>
+  <img
+    alt="iPhone 15 Pro"
+    src="https://example.com/iphone.jpg"
+  />
+  <h3>
+    iPhone 15 Pro
+  </h3>
+  <p>
+    Latest iPhone with advanced features
+  </p>
+  <span>
+    $
+    999.99
+  </span>
+  <div>
+    <span>
+      ★ 
+      4.8
+    </span>
+    <span>
+      (
+      256
+       reviews)
+    </span>
+  </div>
+  <button
+    aria-label="add to cart"
+  >
+    Add to Cart
+  </button>
+  <a
+    aria-label="view product details"
+    href="/products/1"
+  >
+    View Details
+  </a>
+</div>
+`;
+
+exports[`ProductCard Component Snapshot Testing matches snapshot for out-of-stock product 1`] = `
+<div
+  aria-label="product card"
+  data-testid="product-card"
+>
+  <img
+    alt="iPhone 15 Pro"
+    src="https://example.com/iphone.jpg"
+  />
+  <h3>
+    iPhone 15 Pro
+  </h3>
+  <p>
+    Latest iPhone with advanced features
+  </p>
+  <span>
+    $
+    999.99
+  </span>
+  <div>
+    <span>
+      ★ 
+      4.8
+    </span>
+    <span>
+      (
+      256
+       reviews)
+    </span>
+  </div>
+  <button
+    aria-label="add to cart"
+    disabled=""
+  >
+    Out of Stock
+  </button>
+  <a
+    aria-label="view product details"
+    href="/products/1"
+  >
+    View Details
+  </a>
+</div>
+`;
